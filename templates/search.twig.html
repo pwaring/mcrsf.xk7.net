@@ -6,6 +6,10 @@
         <label for="title">Title</label>
         <input id="title" type="search" name="title" value="{{ title }}">
     </p>
+    <p>
+        <label for="authors">Authors</label>
+        <input id="authors" type="search" name="authors" value="{{ authors }}">
+    </p>
     <button type="submit">Search</button>
   </form>
   {% if books|length > 0 %}

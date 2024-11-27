@@ -7,12 +7,26 @@ require_once __DIR__ . '/../config.php';
 $books = [];
 
 $title = $_GET['title'] ?? '';
+$authors = $_GET['authors'] ?? '';
 
-if (!empty($title)) {
-    $sql = "SELECT * FROM books WHERE title LIKE '%' || :title || '%'";
+$whereClauses = [];
+$placeholders = [];
+
+if (strlen($title) > 0) {
+    $whereClauses[] = "title LIKE '%' || :title || '%'";
+    $placeholders['title'] = $title;
+}
+
+if (strlen($authors) > 0) {
+    $whereClauses[] = "authors LIKE '%' || :authors || '%'";
+    $placeholders['authors'] = $authors;
+}
+
+if (count($whereClauses) > 0) {
+    $sql = "SELECT * FROM books WHERE ";
+    $sql .= implode(' AND ', $whereClauses);
     $sth = $db->prepare($sql);
-    $sth->bindValue('title', $title, PDO::PARAM_STR);
-    $sth->execute();
+    $sth->execute($placeholders);
     $books = $sth->fetchAll();
 }
 
@@ -22,5 +36,6 @@ $twig->display(
         'books' => $books,
         'availableSections' => $availableSections,
         'title' => $title,
+        'authors' => $authors,
     ]
 );
