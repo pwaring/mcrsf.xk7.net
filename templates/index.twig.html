@@ -1,52 +1,28 @@
-<!doctype html>
-<html lang="en-GB">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCRSF books</title>
-    <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="simple.css">
-  </head>
-  <body>
-    <header>
-      <h1>MCRSF books</h1>
-      <nav>
-        {% for availableSection in availableSections %}
-          <a href="?section={{ availableSection }}" {{ section == availableSection ? 'class="current"' : '' }}>{{ availableSection|title }}</a>
-        {% endfor %}
-      </nav>
-    </header>
-    <main>
-      <h2>{{ section|title }}</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Authors</th>
-            <th>Pages</th>
-            <th>Date Read</th>
-            <th>Score</th>
-            <th>Score Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for book in books %}
-            <tr>
-              <td>{{ book.title }}</td>
-              <td>{{ book.authors }}</td>
-              <td>{{ book.pages }}</td>
-              <td>{{ book.date_read }}</td>
-              <td>{{ book.score }}</td>
-              <td>{{ book.score_type }}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </main>
-    <footer>
-      Books from <a href="https://mcrscifi.wordpress.com/">Manchester Sci-fi Book Club</a><br>
-      <a href="https://github.com/pwaring/mcrsf.xk7.net">Source code available on GitHub</a>
-    </footer>
-  </body>
-</html>
+{% extends 'base.twig.html' %}
+{% block content %}
+  <h2>{{ section|title }}</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Authors</th>
+        <th>Pages</th>
+        <th>Date Read</th>
+        <th>Score</th>
+        <th>Score Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.authors }}</td>
+          <td>{{ book.pages }}</td>
+          <td>{{ book.date_read }}</td>
+          <td>{{ book.score }}</td>
+          <td>{{ book.score_type }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
