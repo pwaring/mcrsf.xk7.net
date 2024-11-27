@@ -1,0 +1,39 @@
+{% extends 'base.twig.html' %}
+{% block content %}
+  <h2>Search</h2>
+  <form action="/search.php" method="get">
+    <p>
+        <label for="title">Title</label>
+        <input id="title" type="search" name="title" value="{{ title }}">
+    </p>
+    <button type="submit">Search</button>
+  </form>
+  {% if books|length > 0 %}
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Pages</th>
+            <th>Date Read</th>
+            <th>Score</th>
+            <th>Score Type</th>
+            <th>Section</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.authors }}</td>
+            <td>{{ book.pages }}</td>
+            <td>{{ book.date_read }}</td>
+            <td>{{ book.score }}</td>
+            <td>{{ book.score_type }}</td>
+            <td>{{ book.section|title }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+  {% endif %}
+{% endblock %}
