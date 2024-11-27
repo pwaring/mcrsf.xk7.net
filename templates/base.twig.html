@@ -13,8 +13,9 @@
       <h1>MCRSF books</h1>
       <nav>
         {% for availableSection in availableSections %}
-          <a href="?section={{ availableSection }}" {{ section == availableSection ? 'class="current"' : '' }}>{{ availableSection|title }}</a>
+          <a href="/?section={{ availableSection }}">{{ availableSection|title }}</a>
         {% endfor %}
+        <a href="/search.php">Search</a>
       </nav>
     </header>
     <main>
