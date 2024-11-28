@@ -1,0 +1,84 @@
+{% extends 'base.twig.html' %}
+{% block content %}
+  <h2>Stats</h2>
+
+  <h3>Book counts by section</h3>
+  <table>
+    <thead>
+        <tr>
+            <th>Section</th>
+            <th>Number of Books</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bookCount in bookCounts %}
+            <tr>
+                <td>{{ bookCount.section|title }}</td>
+                <td>{{ bookCount.book_count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Aggregate statistics</h3>
+  <table>
+    <tbody>
+        <tr>
+            <th>Mean Score</th>
+            <td>{{ meanScore|number_format(2) }}</td>
+        </tr>
+    </tbody>
+  </table>
+
+  <h3>Lowest scoring books</h3>
+  <table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Pages</th>
+            <th>Date Read</th>
+            <th>Score</th>
+            <th>Score Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in lowestScoringBooks %}
+            <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.authors }}</td>
+            <td>{{ book.pages }}</td>
+            <td>{{ book.date_read }}</td>
+            <td>{{ book.score }}</td>
+            <td>{{ book.score_type }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+  </table>
+
+  <h3>Highest scoring books</h3>
+  <table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Authors</th>
+            <th>Pages</th>
+            <th>Date Read</th>
+            <th>Score</th>
+            <th>Score Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in highestScoringBooks %}
+            <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.authors }}</td>
+            <td>{{ book.pages }}</td>
+            <td>{{ book.date_read }}</td>
+            <td>{{ book.score }}</td>
+            <td>{{ book.score_type }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+  </table>
+{% endblock %}
