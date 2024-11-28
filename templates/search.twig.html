@@ -10,6 +10,14 @@
         <label for="authors">Authors</label>
         <input id="authors" type="search" name="authors" value="{{ authors }}">
     </p>
+    <p>
+      <label for="minimum_score">Minimum Score</label>
+      <input id="minimum_score" type="number" name="minimum_score" step="0.01" min="0" max="5" value="{{ minimumScore }}">
+    </p>
+    <p>
+      <label for="maximum_score">Maximum Score</label>
+      <input id="maximum_score" type="number" name="maximum_score" step="0.01" min="0" max="5" value="{{ maximumScore }}">
+    </p>
     <button type="submit">Search</button>
   </form>
   {% if books|length > 0 %}
