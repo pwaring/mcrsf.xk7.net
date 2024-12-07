@@ -36,7 +36,13 @@
         <tbody>
         {% for book in books %}
             <tr>
-            <td>{{ book.title }}</td>
+            <td>
+              {% if book.website %}
+                  <a href="{{ book.website }}">{{ book.title }}</a>
+              {% else %}
+                  {{ book.title }}
+              {% endif %}
+            </td>
             <td>{{ book.authors }}</td>
             <td>{{ book.pages }}</td>
             <td>{{ book.date_read }}</td>

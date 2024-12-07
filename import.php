@@ -45,6 +45,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'score_type' => null,
             'date_read' => $dateRead,
             'section' => $section,
+            'website' => null,
         ];
     }
 }
@@ -73,6 +74,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
         }
 
         $scoreType = $worksheet->getCell("G{$row}")->getValue();
+        $website = $worksheet->getCell("I{$row}")->getValue();
     
         $section = 'read';
     
@@ -84,6 +86,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'score_type' => $scoreType,
             'date_read' => $dateRead,
             'section' => $section,
+            'website' => $website,
         ];
     }
 }
@@ -109,6 +112,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'score_type' => null,
             'date_read' => null,
             'section' => $section,
+            'website' => null,
         ];
     }
 }
@@ -134,6 +138,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'score_type' => null,
             'date_read' => null,
             'section' => $section,
+            'website' => null,
         ];
     }
 }
@@ -147,7 +152,8 @@ $sql = <<<SQL
         score,
         score_type,
         date_read,
-        section
+        section,
+        website
     ) VALUES (
         :title,
         :authors,
@@ -155,7 +161,8 @@ $sql = <<<SQL
         :score,
         :score_type,
         :date_read,
-        :section
+        :section,
+        :website
     )
 SQL;
 $sth = $db->prepare($sql);

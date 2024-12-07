@@ -7,5 +7,6 @@ CREATE TABLE books
     score NUMERIC,
     score_type TEXT,
     date_read TEXT,
-    section TEXT
+    section TEXT,
+    website TEXT
 );
