@@ -7,7 +7,14 @@ require_once __DIR__ . '/../config.php';
 $section = $_GET['section'] ?? 'upcoming';
 
 if (!in_array($section, $availableSections, true)) {
-    $section = 'upcoming';
+    http_response_code(404);
+    $twig->display(
+        '404.twig.html',
+        [
+            'availableSections' => $availableSections,
+        ]
+    );
+    exit;
 }
 
 $sql = 'SELECT * FROM books WHERE section = :section';
