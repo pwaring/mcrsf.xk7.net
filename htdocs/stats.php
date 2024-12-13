@@ -24,6 +24,16 @@ $sth = $db->prepare($sql);
 $sth->execute();
 $highestScoringBooks = $sth->fetchAll();
 
+$sql = "SELECT * FROM books WHERE section = 'read' AND pages > 0 ORDER BY pages ASC LIMIT 5";
+$sth = $db->prepare($sql);
+$sth->execute();
+$shortestBooks = $sth->fetchAll();
+
+$sql = "SELECT * FROM books WHERE section = 'read' AND pages > 0 ORDER BY pages DESC LIMIT 5";
+$sth = $db->prepare($sql);
+$sth->execute();
+$longestBooks = $sth->fetchAll();
+
 $twig->display(
     'stats.twig.html',
     [
@@ -32,5 +42,7 @@ $twig->display(
         'meanScore' => $meanScore,
         'lowestScoringBooks' => $lowestScoringBooks,
         'highestScoringBooks' => $highestScoringBooks,
+        'shortestBooks' => $shortestBooks,
+        'longestBooks' => $longestBooks,
     ]
 );
