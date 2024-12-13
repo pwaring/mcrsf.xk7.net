@@ -14,6 +14,11 @@ $sth = $db->prepare($sql);
 $sth->execute();
 $meanScore = $sth->fetchColumn();
 
+$sql = "SELECT AVG(pages) AS mean_pages FROM books WHERE pages > 0 AND section = 'read'";
+$sth = $db->prepare($sql);
+$sth->execute();
+$meanPages = $sth->fetchColumn();
+
 $sql = "SELECT * FROM books WHERE score <> '' AND score IS NOT NULL AND section = 'read' ORDER BY score ASC LIMIT 5";
 $sth = $db->prepare($sql);
 $sth->execute();
@@ -40,6 +45,7 @@ $twig->display(
         'availableSections' => $availableSections,
         'bookCounts' => $bookCounts,
         'meanScore' => $meanScore,
+        'meanPages' => $meanPages,
         'lowestScoringBooks' => $lowestScoringBooks,
         'highestScoringBooks' => $highestScoringBooks,
         'shortestBooks' => $shortestBooks,
