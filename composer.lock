@@ -192,16 +192,16 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
-            "version": "3.5.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "fb74dcdfa5b538763ab980e977529bc783039aec"
+                "reference": "bce5db99872f9613121c3ad033c43318a3789396"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/fb74dcdfa5b538763ab980e977529bc783039aec",
-                "reference": "fb74dcdfa5b538763ab980e977529bc783039aec",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/bce5db99872f9613121c3ad033c43318a3789396",
+                "reference": "bce5db99872f9613121c3ad033c43318a3789396",
                 "shasum": ""
             },
             "require": {
@@ -235,7 +235,7 @@
                 "phpcompatibility/php-compatibility": "^9.3",
                 "phpstan/phpstan": "^1.1",
                 "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.6 || ^10.5",
+                "phpunit/phpunit": "^10.5",
                 "squizlabs/php_codesniffer": "^3.7",
                 "tecnickcom/tcpdf": "^6.5"
             },
@@ -290,9 +290,9 @@
             ],
             "support": {
                 "issues": "https://github.com/PHPOffice/PhpSpreadsheet/issues",
-                "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/3.5.0"
+                "source": "https://github.com/PHPOffice/PhpSpreadsheet/tree/3.6.0"
             },
-            "time": "2024-11-22T06:41:00+00:00"
+            "time": "2024-12-08T15:04:12+00:00"
         },
         {
             "name": "psr/http-client",
@@ -598,8 +598,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -677,8 +677,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -751,8 +751,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -809,16 +809,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.16.0",
+            "version": "v3.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "475ad2dc97d65d8631393e721e7e44fb544f0561"
+                "reference": "677ef8da6497a03048192aeeb5aa3018e379ac71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/475ad2dc97d65d8631393e721e7e44fb544f0561",
-                "reference": "475ad2dc97d65d8631393e721e7e44fb544f0561",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/677ef8da6497a03048192aeeb5aa3018e379ac71",
+                "reference": "677ef8da6497a03048192aeeb5aa3018e379ac71",
                 "shasum": ""
             },
             "require": {
@@ -873,7 +873,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.16.0"
+                "source": "https://github.com/twigphp/Twig/tree/v3.17.1"
             },
             "funding": [
                 {
@@ -885,7 +885,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-29T08:27:05+00:00"
+            "time": "2024-12-12T09:58:10+00:00"
         }
     ],
     "packages-dev": [],
