@@ -8,6 +8,7 @@ $sql = "SELECT COUNT(*) AS book_count, section FROM books GROUP BY section";
 $sth = $db->prepare($sql);
 $sth->execute();
 $bookCounts = $sth->fetchAll();
+$bookCountsTotal = array_sum(array_column($bookCounts, 'book_count'));
 
 $sql = "SELECT AVG(score) AS mean_score FROM books WHERE score <> '' AND score IS NOT NULL AND section = 'read'";
 $sth = $db->prepare($sql);
@@ -44,6 +45,7 @@ $twig->display(
     [
         'availableSections' => $availableSections,
         'bookCounts' => $bookCounts,
+        'bookCountsTotal' => $bookCountsTotal,
         'meanScore' => $meanScore,
         'meanPages' => $meanPages,
         'lowestScoringBooks' => $lowestScoringBooks,
