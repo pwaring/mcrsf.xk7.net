@@ -10,6 +10,8 @@ $title = $_GET['title'] ?? '';
 $authors = $_GET['authors'] ?? '';
 $minimumScore = $_GET['minimum_score'] ?? '';
 $maximumScore = $_GET['maximum_score'] ?? '';
+$minimumLength = $_GET['minimum_length'] ?? '';
+$maximumLength = $_GET['maximum_length'] ?? '';
 
 $whereClauses = [];
 $placeholders = [];
@@ -34,6 +36,16 @@ if (strlen($maximumScore) > 0) {
     $placeholders['maximum_score'] = $maximumScore;
 }
 
+if (strlen($minimumLength) > 0) {
+    $whereClauses[] = "pages >= :minimum_length";
+    $placeholders['minimum_length'] = $minimumLength;
+}
+
+if (strlen($maximumLength) > 0) {
+    $whereClauses[] = "pages <= :maximum_length";
+    $placeholders['maximum_length'] = $maximumLength;
+}
+
 if (count($whereClauses) > 0) {
     $sql = "SELECT * FROM books WHERE ";
     $sql .= implode(' AND ', $whereClauses);
@@ -51,5 +63,7 @@ $twig->display(
         'authors' => $authors,
         'minimumScore' => $minimumScore,
         'maximumScore' => $maximumScore,
+        'minimumLength' => $minimumLength,
+        'maximumLength' => $maximumLength,
     ]
 );

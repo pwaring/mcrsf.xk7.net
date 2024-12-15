@@ -19,6 +19,14 @@
       <label for="maximum_score">Maximum Score</label>
       <input id="maximum_score" type="number" name="maximum_score" step="0.01" min="0" max="5" value="{{ maximumScore }}">
     </p>
+    <p>
+      <label for="minimum_length">Minimum Length / Page Count</label>
+      <input id="minimum_length" type="number" name="minimum_length" step="1" min="1" max="1500" value="{{ minimumLength }}">
+    </p>
+    <p>
+      <label for="maximum_length">Maximum Length / Page Count</label>
+      <input id="maximum_length" type="number" name="maximum_length" step="1" min="1" max="1500" value="{{ maximumLength }}">
+    </p>
     <button type="submit">Search</button>
   </form>
   {% if books|length > 0 %}
