@@ -57,7 +57,7 @@
             <td>{{ book.date_read }}</td>
             <td>{{ book.score }}</td>
             <td>{{ book.score_type }}</td>
-            <td>{{ book.section|title }}</td>
+            <td><a href="/?section={{ book.section }}">{{ book.section|title }}</a></td>
             </tr>
         {% endfor %}
         </tbody>
