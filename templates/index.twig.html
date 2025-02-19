@@ -7,9 +7,13 @@
         <th>Title</th>
         <th>Authors</th>
         <th>Pages</th>
-        <th>Date Read</th>
-        <th>Score</th>
-        <th>Score Type</th>
+        {% if section == 'read' or section == 'upcoming' %}
+          <th>Date Read</th>
+        {% endif %}
+        {% if section == 'read' %}
+          <th>Score</th>
+          <th>Score Type</th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
@@ -24,9 +28,13 @@
           </td>
           <td><a href="search.php?authors={{ book.authors }}">{{ book.authors }}</a></td>
           <td>{{ book.pages }}</td>
-          <td>{{ book.date_read }}</td>
-          <td>{{ book.score }}</td>
-          <td>{{ book.score_type }}</td>
+          {% if section == 'read' or section == 'upcoming' %}
+            <td>{{ book.date_read }}</td>
+          {% endif %}
+          {% if section == 'read' %}
+            <td>{{ book.score }}</td>
+            <td>{{ book.score_type }}</td>
+          {% endif %}
         </tr>
       {% endfor %}
     </tbody>
