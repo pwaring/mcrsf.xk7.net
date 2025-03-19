@@ -18,6 +18,13 @@ if (!in_array($section, $availableSections, true)) {
 }
 
 $sql = 'SELECT * FROM books WHERE section = :section';
+
+if ($section === 'upcoming') {
+    $sql .= ' ORDER BY date_read ASC';
+} else {
+    $sql .= ' ORDER BY date_read DESC';
+}
+
 $sth = $db->prepare($sql);
 $sth->bindValue('section', $section, PDO::PARAM_STR);
 $sth->execute();
