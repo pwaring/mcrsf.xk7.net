@@ -1,6 +1,16 @@
 {% extends 'base.twig.html' %}
 {% block content %}
   <h2>{{ section|title }}</h2>
+  {% if section == 'rejected' %}
+    <p>Rejected books are ones which have been suggested but we've decided not to read. Common reasons for rejection are:</p>
+    <ul>
+      <li><strong>Length:</strong> Maximum of 400 pages, as we find that people don't have the time to read longer books.</li>
+      <li><strong>Genre:</strong> We're a sci-fi book club rather than sci-fi and fantasy.</li>
+      <li><strong>Availability:</strong> Must have an eBook and paperback at a reasonable price (generally less than £10). We don't usually read books that are out of print or only in hardback.</li>
+      <li><strong>Advocate:</strong> Whoever suggests the book usually takes the lead in the discussion. If no one is willing to do this then we tend to reject the book.</li>
+    </ul>
+    <p>Rejection means that we don't think the book is a good fit for our club, not that it's a bad book or that we don't recommend reading it. For example, several members have read and enjoyed Children of Time, but at 600 pages it's too long for the club.</p>
+  {% endif %}
   <table>
     <thead>
       <tr>
