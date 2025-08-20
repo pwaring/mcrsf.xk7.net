@@ -41,9 +41,8 @@ $sth->execute();
 $longestBooks = $sth->fetchAll();
 
 $twig->display(
-    'stats.twig.html',
+    'stats.twig',
     [
-        'availableSections' => $availableSections,
         'bookCounts' => $bookCounts,
         'bookCountsTotal' => $bookCountsTotal,
         'meanScore' => $meanScore,

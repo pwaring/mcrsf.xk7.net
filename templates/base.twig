@@ -12,9 +12,10 @@
     <header>
       <h1><a href="/">MCRSF books</a></h1>
       <nav>
-        {% for availableSection in availableSections %}
-          <a href="/?section={{ availableSection }}">{{ availableSection|title }}</a>
-        {% endfor %}
+        <a href="/upcoming.php">Upcoming</a>
+        <a href="/read.php">Read</a>
+        <a href="/suggestions.php">Suggestions</a>
+        <a href="/rejected.php">Rejected</a>
         <a href="/search.php">Search</a>
         <a href="/stats.php">Stats</a>
       </nav>

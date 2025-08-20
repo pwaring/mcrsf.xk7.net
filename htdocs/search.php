@@ -55,10 +55,9 @@ if (count($whereClauses) > 0) {
 }
 
 $twig->display(
-    'search.twig.html',
+    'search.twig',
     [
         'books' => $books,
-        'availableSections' => $availableSections,
         'title' => $title,
         'authors' => $authors,
         'minimumScore' => $minimumScore,

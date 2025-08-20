@@ -1,0 +1,36 @@
+{% extends 'base.twig' %}
+{% block content %}
+  <h2>Read</h2>
+    <p><strong>Score:</strong> We score individually out of 5, and the value listed in the table is an average of the scores. Anything scoring 4 or above generally met with our approval. We don't have scores for some of the earlier books, and sometimes we have the author attend for a Q&A - in those cases we don't always score the book.</p>
+    <p><strong>Score Type:</strong> We try to choose something amusing to score out of which is related to the book.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Authors</th>
+        <th>Pages</th>
+        <th>Date Read</th>
+        <th>Score</th>
+        <th>Score Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td>
+            {% if book.website %}
+                <a href="{{ book.website }}">{{ book.title }}</a>
+            {% else %}
+                {{ book.title }}
+            {% endif %}
+          </td>
+          <td><a href="search.php?authors={{ book.authors }}">{{ book.authors }}</a></td>
+          <td>{{ book.pages }}</td>
+          <td>{{ book.date_read }}</td>
+          <td>{{ book.score }}</td>
+          <td>{{ book.score_type }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

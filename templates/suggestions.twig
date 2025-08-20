@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+{% block content %}
+  <h2>Suggestions</h2>
+    <p>These books have been suggested by one or more members of the group, or on social media. A book being listed here doesn't mean that we will definitely read it - the list is to allow us to remember what books we've suggested already.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Authors</th>
+        <th>Pages</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td>
+            {% if book.website %}
+                <a href="{{ book.website }}">{{ book.title }}</a>
+            {% else %}
+                {{ book.title }}
+            {% endif %}
+          </td>
+          <td><a href="search.php?authors={{ book.authors }}">{{ book.authors }}</a></td>
+          <td>{{ book.pages }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -23,13 +23,6 @@ $options = [
 ];
 $db = new PDO($dsn, null, null, $options);
 
-$availableSections = [
-    'upcoming',
-    'read',
-    'suggestions',
-    'rejected',
-];
-
 $loader = new FilesystemLoader(__DIR__ . '/templates/');
 $twig = new Environment(
     $loader,

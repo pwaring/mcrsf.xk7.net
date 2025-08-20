@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+{% block content %}
+  <h2>Upcoming</h2>
+    <p>These are the next few books we are planning to read and have set a date for - though occasionally we will move books around if publication is delayed or the person advocating the book can't make it.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Authors</th>
+        <th>Pages</th>
+        <th>Date Read</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+        <tr>
+          <td>
+            {% if book.website %}
+                <a href="{{ book.website }}">{{ book.title }}</a>
+            {% else %}
+                {{ book.title }}
+            {% endif %}
+          </td>
+          <td><a href="search.php?authors={{ book.authors }}">{{ book.authors }}</a></td>
+          <td>{{ book.pages }}</td>
+          <td>{{ book.date_read }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
