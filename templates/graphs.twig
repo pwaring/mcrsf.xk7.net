@@ -1,0 +1,10 @@
+{% extends 'base.twig' %}
+{% block content %}
+  <h2>Graphs</h2>
+
+  <h3>Scores over time</h3>
+  {{ dateReadScoresSvg|raw }}
+
+  <h3>Scores over pages</h3>
+  {{ pageScoresSvg|raw }}
+{% endblock %}
