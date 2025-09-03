@@ -8,6 +8,7 @@
         <th>Title</th>
         <th>Authors</th>
         <th>Pages</th>
+        <th>Published</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
           </td>
           <td><a href="search.php?authors={{ book.authors }}">{{ book.authors }}</a></td>
           <td>{{ book.pages }}</td>
+          <td>{{ book.published_year }}</td>
         </tr>
       {% endfor %}
     </tbody>

@@ -28,11 +28,12 @@ for ($row = 2; $row <= $highestRow; $row++) {
     if ($title) {
         $authors = $worksheet->getCell("B{$row}")->getValue();
         $pages = $worksheet->getCell("C{$row}")->getValue();
+        $publishedYear = $worksheet->getCell("D{$row}")->getValue();
         
         // Date read needs to be converted
         $dateRead = (DateTimeImmutable::createFromFormat(
             'd/m/Y',
-            $worksheet->getCell("E{$row}")->getFormattedValue()
+            $worksheet->getCell("F{$row}")->getFormattedValue()
         ))->format('Y-m-d');
     
         $section = 'upcoming';
@@ -41,6 +42,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'title' => $title,
             'authors' => $authors,
             'pages' => $pages,
+            'published_year' => $publishedYear,
             'score' => null,
             'score_type' => null,
             'date_read' => $dateRead,
@@ -60,21 +62,22 @@ for ($row = 2; $row <= $highestRow; $row++) {
     if ($title) {
         $authors = $worksheet->getCell("B{$row}")->getValue();
         $pages = $worksheet->getCell("C{$row}")->getValue();
+        $publishedYear = $worksheet->getCell("D{$row}")->getValue();
         
         // Date read needs to be converted
         $dateRead = (DateTimeImmutable::createFromFormat(
             'd/m/Y',
-            $worksheet->getCell("E{$row}")->getFormattedValue()
+            $worksheet->getCell("F{$row}")->getFormattedValue()
         ))->format('Y-m-d');
 
-        $score = $worksheet->getCell("F{$row}")->getValue();
+        $score = $worksheet->getCell("G{$row}")->getValue();
 
         if (!$score) {
             $score = null;
         }
 
-        $scoreType = $worksheet->getCell("G{$row}")->getValue();
-        $website = $worksheet->getCell("I{$row}")->getValue();
+        $scoreType = $worksheet->getCell("H{$row}")->getValue();
+        $website = $worksheet->getCell("J{$row}")->getValue();
     
         $section = 'read';
     
@@ -82,6 +85,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'title' => $title,
             'authors' => $authors,
             'pages' => $pages,
+            'published_year' => $publishedYear,
             'score' => $score,
             'score_type' => $scoreType,
             'date_read' => $dateRead,
@@ -101,6 +105,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
     if ($title) {
         $authors = $worksheet->getCell("B{$row}")->getValue();
         $pages = $worksheet->getCell("C{$row}")->getValue();
+        $publishedYear = $worksheet->getCell("D{$row}")->getValue();
     
         $section = 'suggestions';
     
@@ -108,6 +113,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'title' => $title,
             'authors' => $authors,
             'pages' => $pages,
+            'published_year' => $publishedYear,
             'score' => null,
             'score_type' => null,
             'date_read' => null,
@@ -127,6 +133,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
     if ($title) {
         $authors = $worksheet->getCell("B{$row}")->getValue();
         $pages = $worksheet->getCell("C{$row}")->getValue();
+        $publishedYear = $worksheet->getCell("D{$row}")->getValue();
     
         $section = 'rejected';
     
@@ -134,6 +141,7 @@ for ($row = 2; $row <= $highestRow; $row++) {
             'title' => $title,
             'authors' => $authors,
             'pages' => $pages,
+            'published_year' => $publishedYear,
             'score' => null,
             'score_type' => null,
             'date_read' => null,
@@ -149,6 +157,7 @@ $sql = <<<SQL
         title,
         authors,
         pages,
+        published_year,
         score,
         score_type,
         date_read,
@@ -158,6 +167,7 @@ $sql = <<<SQL
         :title,
         :authors,
         :pages,
+        :published_year,
         :score,
         :score_type,
         :date_read,
