@@ -58,8 +58,8 @@ $sql = <<<SQL
         section = 'read'
         AND score <> ''
         AND score IS NOT NULL
-    GROUP BY strftime('%Y', date_read)
-    ORDER BY strftime('%Y', date_read) ASC
+    GROUP BY year_read
+    ORDER BY year_read ASC
 SQL;
 $sth = $db->prepare($sql);
 $sth->execute();
