@@ -17,6 +17,7 @@
     "require": {
         "phpoffice/phpspreadsheet": "^5.2",
         "twig/twig": "^3.15",
-        "goat1000/svggraph": "^3.20"
+        "goat1000/svggraph": "^3.20",
+        "twig/intl-extra": "^3.22"
     }
 }

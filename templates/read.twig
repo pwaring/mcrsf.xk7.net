@@ -28,7 +28,7 @@
           <td><a href="search.php?authors={{ book.authors }}">{{ book.authors }}</a></td>
           <td>{{ book.pages }}</td>
           <td>{{ book.published_year }}</td>
-          <td>{{ book.date_read }}</td>
+          <td>{{ book.date_read|format_date }}</td>
           <td>{{ book.score }}</td>
           <td>{{ book.score_type }}</td>
         </tr>

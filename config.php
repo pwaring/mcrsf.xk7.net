@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Twig\Environment;
+use Twig\Extra\Intl\IntlExtension;
 use Twig\Loader\FilesystemLoader;
 
 error_reporting(E_ALL);
@@ -31,3 +32,4 @@ $twig = new Environment(
         'strict_variables' => true,
     ]
 );
+$twig->addExtension(new IntlExtension());
