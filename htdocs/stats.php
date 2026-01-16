@@ -40,6 +40,29 @@ $sth = $db->prepare($sql);
 $sth->execute();
 $longestBooks = $sth->fetchAll();
 
+$sql = <<<SQL
+SELECT
+	strftime('%Y', date_read) AS year_read,
+	MAX(score) AS max_score,
+	title,
+    website,
+    authors,
+    pages,
+    date_read,
+    score,
+    score_type
+FROM
+    books
+WHERE
+    section = 'read'
+GROUP BY year_read
+HAVING max_score > 0
+ORDER BY year_read ASC
+SQL;
+$sth = $db->prepare($sql);
+$sth->execute();
+$highestScoringPerYear = $sth->fetchAll();
+
 $twig->display(
     'stats.twig',
     [
@@ -51,5 +74,6 @@ $twig->display(
         'highestScoringBooks' => $highestScoringBooks,
         'shortestBooks' => $shortestBooks,
         'longestBooks' => $longestBooks,
+        'highestScoringPerYear' => $highestScoringPerYear,
     ]
 );
