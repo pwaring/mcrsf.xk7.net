@@ -2,16 +2,20 @@
 
 declare(strict_types=1);
 
+use Symfony\Component\HttpFoundation\Request;
+
 require_once __DIR__ . '/../config.php';
 
 $books = [];
 
-$title = $_GET['title'] ?? '';
-$authors = $_GET['authors'] ?? '';
-$minimumScore = $_GET['minimum_score'] ?? '';
-$maximumScore = $_GET['maximum_score'] ?? '';
-$minimumLength = $_GET['minimum_length'] ?? '';
-$maximumLength = $_GET['maximum_length'] ?? '';
+$request = Request::createFromGlobals();
+
+$title = $request->query->getString('title');
+$authors = $request->query->getString('authors');
+$minimumScore = $request->query->getString('minimum_score');
+$maximumScore = $request->query->getString('maximum_score');
+$minimumLength = $request->query->getString('minimum_length');
+$maximumLength = $request->query->getString('maximum_length');
 
 $whereClauses = [];
 $placeholders = [];
