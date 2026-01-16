@@ -33,3 +33,14 @@ $twig = new Environment(
     ]
 );
 $twig->addExtension(new IntlExtension());
+
+$allowedOrderColumns = [
+    'pages',
+    'published_year',
+    'date_read',
+    'score',
+];
+$allowedOrderDirections = [
+    'asc',
+    'desc',
+];
