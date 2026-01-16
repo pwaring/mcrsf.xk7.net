@@ -2,4 +2,7 @@
     "files.associations": {
         "*.twig": "html"
     },
+    "search.exclude": {
+        "vendor/**": true,
+    }
 }
